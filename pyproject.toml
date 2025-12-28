@@ -1,0 +1,88 @@
+[build-system]
+requires = ["setuptools>=65.0", "setuptools-scm[toml]>=6.2"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "fastapi-kit"
+version = "0.0.dev"  # Auto-updated by GitHub Actions when tag is pushed
+description = "🚀 Easy FastAPI Setup Kit - Production-ready FastAPI boilerplate with logging, error handling, and more"
+readme = "README.md"
+requires-python = ">=3.9"
+license = {text = "MIT"}
+authors = [
+    {name = "JunSeok Kim", email = "infend@gmail.com"}
+]
+keywords = ["fastapi", "logging", "error-handling", "api", "web", "framework", "production"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Framework :: FastAPI",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+]
+dependencies = [
+    "fastapi>=0.100.0",
+    "uvicorn>=0.20.0",
+    "pydantic>=2.0.0",
+    "loguru>=0.7.0",
+    "opentelemetry-api>=1.20.0",
+    "PyYAML>=6.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0.0",
+    "pytest-cov>=4.0.0",
+    "pytest-asyncio>=0.21.0",
+    "pytest-mock>=3.10.0",
+    "httpx>=0.24.0",
+    "ruff>=0.1.0",
+    "mypy>=1.0.0",
+    "types-PyYAML>=6.0.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/bestend/fastapi-kit"
+Documentation = "https://github.com/bestend/fastapi-kit#readme"
+Repository = "https://github.com/bestend/fastapi-kit.git"
+Issues = "https://github.com/bestend/fastapi-kit/issues"
+
+[tool.setuptools]
+packages = ["fastapi_kit"]
+package-dir = {"" = "src"}
+
+[tool.setuptools.package-data]
+fastapi_kit = ["py.typed"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py39"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "N", "UP", "B", "C4", "SIM"]
+ignore = [
+    "N818", "N806", "N814",
+    "E501",  # Line too long
+    "B904", "B007",
+    "SIM117",
+]
+
+[tool.mypy]
+python_version = "3.9"
+warn_return_any = false
+warn_unused_configs = true
+disallow_untyped_defs = false
+ignore_missing_imports = true
+check_untyped_defs = false
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = "test_*.py"
+addopts = "-v --cov=fastapi_kit --cov-report=term-missing"
+asyncio_mode = "auto"

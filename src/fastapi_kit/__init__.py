@@ -1,0 +1,49 @@
+"""FastAPI Kit
+
+🚀 Production-ready FastAPI boilerplate with batteries included.
+
+This package provides a complete FastAPI setup with logging, error handling,
+request/response tracking, and more out of the box.
+
+**Quick Start:**
+```python
+from fastapi import APIRouter
+from fastapi_kit import create_app, LoggingAPIRoute
+
+router = APIRouter(route_class=LoggingAPIRoute)
+
+@router.get("/hello")
+async def hello():
+    return {"message": "Hello, World!"}
+
+app = create_app([router], title="My API", version="1.0.0")
+```
+
+**Recommended import style:**
+```python
+from fastapi_kit import create_app, LoggingAPIRoute, BaseModel
+from fastapi_kit.log import get_logger
+from fastapi_kit.exception import add_exception_handler
+```
+
+**Avoid importing from internal modules:**
+```python
+# ❌ Don't do this
+from fastapi_kit.base import create_app
+from fastapi_kit.exception.handler import add_exception_handler
+```
+"""
+
+from .base import create_app
+from .log import get_logger
+from .logging_api_route import LoggingAPIRoute
+from .type import BaseModel
+
+__version__ = "0.0.dev"
+
+__all__ = [
+    "BaseModel",
+    "LoggingAPIRoute",
+    "create_app",
+    "get_logger",
+]

@@ -1,0 +1,9 @@
+include README.md
+include README.ko.md
+include LICENSE
+include CHANGELOG.md
+include pyproject.toml
+include ruff.toml
+recursive-include src/fastapi_kit *.py
+recursive-include src/fastapi_kit py.typed
+
