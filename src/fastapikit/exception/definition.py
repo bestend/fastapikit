@@ -9,8 +9,8 @@ import functools
 from fastapi.exceptions import HTTPException, RequestValidationError
 from starlette import status
 
-from fastapi_kit.exception.error_info import ErrorInfo
-from fastapi_kit.exception.type import BadRequestHeaderError, InvalidAccessTokenError
+from fastapikit.exception.error_info import ErrorInfo
+from fastapikit.exception.type import BadRequestHeaderError, InvalidAccessTokenError
 
 
 @functools.lru_cache
@@ -26,7 +26,7 @@ def get_exception_definitions():
     Example:
         ```python
         # Add custom exception
-        from fastapi_kit.exception import ErrorInfo, get_exception_definitions
+        from fastapikit.exception import ErrorInfo, get_exception_definitions
 
         class CustomError(Exception):
             pass

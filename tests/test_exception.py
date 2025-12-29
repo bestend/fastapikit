@@ -4,8 +4,8 @@ import pytest
 from fastapi import APIRouter
 from fastapi.testclient import TestClient
 
-from fastapi_kit import create_app
-from fastapi_kit.exception import (
+from fastapikit import create_app
+from fastapikit.exception import (
     BadRequestHeaderError,
     ErrorInfo,
     InvalidAccessTokenError,

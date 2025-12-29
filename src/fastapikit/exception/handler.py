@@ -13,10 +13,10 @@ from fastapi.exceptions import HTTPException, RequestValidationError
 from fastapi.requests import Request
 from fastapi.responses import JSONResponse
 
-from fastapi_kit.exception import ErrorInfo
-from fastapi_kit.exception.definition import get_exception_definitions
-from fastapi_kit.log import get_logger
-from fastapi_kit.util import get_trace_id
+from fastapikit.exception import ErrorInfo
+from fastapikit.exception.definition import get_exception_definitions
+from fastapikit.log import get_logger
+from fastapikit.util import get_trace_id
 
 logger = get_logger()
 

@@ -6,7 +6,7 @@ This example shows the basic usage of FastAPI Kit with minimal configuration.
 import uvicorn
 from fastapi import APIRouter
 
-from fastapi_kit import LoggingAPIRoute, ResponseFormatter, create_app, get_logger
+from fastapikit import LoggingAPIRoute, ResponseFormatter, create_app, get_logger
 
 # Create logger
 logger = get_logger()

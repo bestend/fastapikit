@@ -22,7 +22,7 @@ class BaseModel(PydanticBaseModel):
     Example:
         ```python
         from pydantic import Field
-        from fastapi_kit import BaseModel
+        from fastapikit import BaseModel
 
         class UserRequest(BaseModel):
             user_name: str = Field(alias="userName")

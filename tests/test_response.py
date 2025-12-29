@@ -1,6 +1,6 @@
 """Test ResponseFormatter utility."""
 
-from fastapi_kit.response import ResponseFormatter
+from fastapikit.response import ResponseFormatter
 
 
 def test_success_response():

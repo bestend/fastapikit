@@ -4,12 +4,12 @@ from unittest.mock import Mock, patch
 from fastapi import APIRouter, Depends
 from fastapi.testclient import TestClient
 
-from fastapi_kit import create_app
+from fastapikit import create_app
 
 # Skip if auth dependencies not installed
 pytest.importorskip("jose")
 
-from fastapi_kit.auth import OIDCAuth, OIDCConfig, TokenPayload
+from fastapikit.auth import OIDCAuth, OIDCConfig, TokenPayload
 
 
 @pytest.fixture
@@ -101,7 +101,7 @@ def test_token_payload_roles_extraction():
     assert "role5" in payload3.roles
 
 
-@patch("fastapi_kit.auth.jwt.decode")
+@patch("fastapikit.auth.jwt.decode")
 def test_verify_token_success(mock_decode, oidc_auth, mock_jwt_payload):
     """Test successful token verification."""
     mock_decode.return_value = mock_jwt_payload
@@ -112,7 +112,7 @@ def test_verify_token_success(mock_decode, oidc_auth, mock_jwt_payload):
     assert payload == mock_jwt_payload
 
 
-@patch("fastapi_kit.auth.jwt.decode")
+@patch("fastapikit.auth.jwt.decode")
 def test_verify_token_expired(mock_decode, oidc_auth):
     """Test expired token handling."""
     from jose import jwt as jose_jwt
@@ -142,7 +142,7 @@ def test_protected_route_without_token(oidc_auth):
     assert response.status_code == 401  # HTTPBearer returns 401 for missing auth
 
 
-@patch("fastapi_kit.auth.jwt.decode")
+@patch("fastapikit.auth.jwt.decode")
 def test_protected_route_with_valid_token(
     mock_decode, oidc_auth, mock_jwt_payload
 ):
@@ -169,7 +169,7 @@ def test_protected_route_with_valid_token(
     assert "admin" in data["roles"]
 
 
-@patch("fastapi_kit.auth.jwt.decode")
+@patch("fastapikit.auth.jwt.decode")
 def test_require_roles_success(mock_decode, oidc_auth, mock_jwt_payload):
     """Test role requirement - user has required role."""
     mock_decode.return_value = mock_jwt_payload
@@ -193,7 +193,7 @@ def test_require_roles_success(mock_decode, oidc_auth, mock_jwt_payload):
     assert response.status_code == 200
 
 
-@patch("fastapi_kit.auth.jwt.decode")
+@patch("fastapikit.auth.jwt.decode")
 def test_require_roles_forbidden(mock_decode, oidc_auth, mock_jwt_payload):
     """Test role requirement - user missing required role."""
     mock_decode.return_value = mock_jwt_payload
@@ -220,7 +220,7 @@ def test_require_roles_forbidden(mock_decode, oidc_auth, mock_jwt_payload):
     assert "msg" in response_data or "detail" in response_data
 
 
-@patch("fastapi_kit.auth.jwt.decode")
+@patch("fastapikit.auth.jwt.decode")
 def test_require_all_roles(mock_decode, oidc_auth):
     """Test requiring all roles."""
     mock_decode.return_value = {
@@ -250,7 +250,7 @@ def test_require_all_roles(mock_decode, oidc_auth):
     assert response.status_code == 403
 
 
-@patch("fastapi_kit.auth.jwt.decode")
+@patch("fastapikit.auth.jwt.decode")
 def test_require_groups(mock_decode, oidc_auth, mock_jwt_payload):
     """Test group requirement."""
     mock_decode.return_value = mock_jwt_payload
@@ -274,7 +274,7 @@ def test_require_groups(mock_decode, oidc_auth, mock_jwt_payload):
     assert response.status_code == 200
 
 
-@patch("fastapi_kit.auth.jwt.decode")
+@patch("fastapikit.auth.jwt.decode")
 def test_optional_auth_with_token(mock_decode, oidc_auth, mock_jwt_payload):
     """Test optional auth with valid token."""
     mock_decode.return_value = mock_jwt_payload

@@ -37,7 +37,7 @@ python examples/external_auth/app.py
 ## Code
 
 ```python
-from fastapi_kit import create_app
+from fastapikit import create_app
 
 app = create_app(
     [router],

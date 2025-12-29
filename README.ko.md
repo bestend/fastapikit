@@ -10,8 +10,8 @@
 
 [![Python Version](https://img.shields.io/badge/python-3.9%2B-blue)](https://www.python.org/downloads/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
-[![Status](https://img.shields.io/badge/status-alpha-yellow)](https://github.com/bestend/fastapi-kit)
-[![Tests](https://github.com/bestend/fastapi-kit/actions/workflows/tests.yml/badge.svg)](https://github.com/bestend/fastapi-kit/actions/workflows/tests.yml)
+[![Status](https://img.shields.io/badge/status-alpha-yellow)](https://github.com/bestend/fastapikit)
+[![Tests](https://github.com/bestend/fastapikit/actions/workflows/tests.yml/badge.svg)](https://github.com/bestend/fastapikit/actions/workflows/tests.yml)
 
 </div>
 
@@ -42,7 +42,7 @@
 ## 📦 설치
 
 ```bash
-pip install fastapi-kit
+pip install fastapikit
 ```
 
 ---
@@ -65,7 +65,7 @@ http://localhost:8000/v1/docs
 
 ```python
 from fastapi import APIRouter
-from fastapi_kit import create_app, LoggingAPIRoute
+from fastapikit import create_app, LoggingAPIRoute
 
 # API 라우터 생성
 router = APIRouter(route_class=LoggingAPIRoute)
@@ -92,7 +92,7 @@ uvicorn main:app --host 0.0.0.0 --port 8000
 
 ```python
 from fastapi import APIRouter
-from fastapi_kit import create_app, LoggingAPIRoute, get_logger
+from fastapikit import create_app, LoggingAPIRoute, get_logger
 
 logger = get_logger()
 
@@ -152,7 +152,7 @@ Trace ID와 함께 모든 요청과 응답을 자동으로 로깅하는 향상�
 
 ```python
 from fastapi import APIRouter
-from fastapi_kit import LoggingAPIRoute
+from fastapikit import LoggingAPIRoute
 
 router = APIRouter(route_class=LoggingAPIRoute)
 ```
@@ -162,7 +162,7 @@ router = APIRouter(route_class=LoggingAPIRoute)
 사전 구성된 Loguru 로거 인스턴스를 가져옵니다.
 
 ```python
-from fastapi_kit import get_logger
+from fastapikit import get_logger
 
 logger = get_logger()
 logger.info("애플리케이션 시작됨")
@@ -174,7 +174,7 @@ logger.error("문제가 발생했습니다")
 합리적인 기본값을 가진 향상된 Pydantic BaseModel입니다.
 
 ```python
-from fastapi_kit import BaseModel
+from fastapikit import BaseModel
 
 class UserRequest(BaseModel):
     name: str
@@ -187,7 +187,7 @@ class UserRequest(BaseModel):
 커스터마이징 가능한 에러 응답과 함께 자동 예외 처리를 제공합니다.
 
 ```python
-from fastapi_kit.exception import BadRequestHeaderError, InvalidAccessTokenError
+from fastapikit.exception import BadRequestHeaderError, InvalidAccessTokenError
 
 # 커스텀 예외 발생
 raise BadRequestHeaderError("잘못된 헤더 형식")
@@ -252,7 +252,7 @@ pip install -e ".[dev]"
 pytest tests/
 
 # 커버리지와 함께 실행
-pytest tests/ --cov=fastapi_kit --cov-report=html
+pytest tests/ --cov=fastapikit --cov-report=html
 ```
 
 ---
@@ -261,8 +261,8 @@ pytest tests/ --cov=fastapi_kit --cov-report=html
 
 ```bash
 # 저장소 클론
-git clone https://github.com/bestend/fastapi-kit.git
-cd fastapi-kit
+git clone https://github.com/bestend/fastapikit.git
+cd fastapikit
 
 # 개발 모드로 설치
 pip install -e ".[dev]"
@@ -284,7 +284,7 @@ mypy src/
 ### 커스텀 예외 핸들러
 
 ```python
-from fastapi_kit.exception import ErrorInfo, get_exception_definitions
+from fastapikit.exception import ErrorInfo, get_exception_definitions
 
 # 커스텀 예외 추가
 class CustomError(Exception):

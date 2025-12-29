@@ -10,8 +10,8 @@
 
 [![Python Version](https://img.shields.io/badge/python-3.9%2B-blue)](https://www.python.org/downloads/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
-[![Status](https://img.shields.io/badge/status-alpha-yellow)](https://github.com/bestend/fastapi-kit)
-[![Tests](https://github.com/bestend/fastapi-kit/actions/workflows/tests.yml/badge.svg)](https://github.com/bestend/fastapi-kit/actions/workflows/tests.yml)
+[![Status](https://img.shields.io/badge/status-alpha-yellow)](https://github.com/bestend/fastapikit)
+[![Tests](https://github.com/bestend/fastapikit/actions/workflows/tests.yml/badge.svg)](https://github.com/bestend/fastapikit/actions/workflows/tests.yml)
 
 </div>
 
@@ -42,7 +42,7 @@ Stop writing the same boilerplate code for every FastAPI project. Start building
 ## 📦 Installation
 
 ```bash
-pip install fastapi-kit
+pip install fastapikit
 ```
 
 ---
@@ -63,11 +63,10 @@ http://localhost:8000/v1/docs
 
 ### Basic Usage
 
-### Basic Usage
 
 ```python
 from fastapi import APIRouter
-from fastapi_kit import create_app, LoggingAPIRoute
+from fastapikit import create_app, LoggingAPIRoute
 
 # Create your API router
 router = APIRouter(route_class=LoggingAPIRoute)
@@ -94,7 +93,7 @@ uvicorn main:app --host 0.0.0.0 --port 8000
 
 ```python
 from fastapi import APIRouter, Depends
-from fastapi_kit import create_app, LoggingAPIRoute, get_logger
+from fastapikit import create_app, LoggingAPIRoute, get_logger
 
 logger = get_logger()
 
@@ -156,7 +155,7 @@ Enhanced APIRoute class that automatically logs all requests and responses with 
 
 ```python
 from fastapi import APIRouter
-from fastapi_kit import LoggingAPIRoute
+from fastapikit import LoggingAPIRoute
 
 router = APIRouter(route_class=LoggingAPIRoute)
 ```
@@ -166,7 +165,7 @@ router = APIRouter(route_class=LoggingAPIRoute)
 Get a pre-configured Loguru logger instance.
 
 ```python
-from fastapi_kit import get_logger
+from fastapikit import get_logger
 
 logger = get_logger()
 logger.info("Application started")
@@ -178,7 +177,7 @@ logger.error("Something went wrong")
 Enhanced Pydantic BaseModel with sensible defaults.
 
 ```python
-from fastapi_kit import BaseModel
+from fastapikit import BaseModel
 
 class UserRequest(BaseModel):
     name: str
@@ -191,7 +190,7 @@ class UserRequest(BaseModel):
 Automatic exception handling with customizable error responses.
 
 ```python
-from fastapi_kit.exception import BadRequestHeaderError, InvalidAccessTokenError
+from fastapikit.exception import BadRequestHeaderError, InvalidAccessTokenError
 
 # Raise custom exceptions
 raise BadRequestHeaderError("Invalid header format")
@@ -256,7 +255,7 @@ pip install -e ".[dev]"
 pytest tests/
 
 # Run with coverage
-pytest tests/ --cov=fastapi_kit --cov-report=html
+pytest tests/ --cov=fastapikit --cov-report=html
 ```
 
 ---
@@ -265,8 +264,8 @@ pytest tests/ --cov=fastapi_kit --cov-report=html
 
 ```bash
 # Clone the repository
-git clone https://github.com/bestend/fastapi-kit.git
-cd fastapi-kit
+git clone https://github.com/bestend/fastapikit.git
+cd fastapikit
 
 # Install in development mode
 pip install -e ".[dev]"
@@ -288,7 +287,7 @@ mypy src/
 ### Custom Exception Handlers
 
 ```python
-from fastapi_kit.exception import ErrorInfo, get_exception_definitions
+from fastapikit.exception import ErrorInfo, get_exception_definitions
 
 # Add custom exception
 class CustomError(Exception):

@@ -10,7 +10,7 @@ from typing import Any, Generic, TypeVar
 
 from pydantic import Field
 
-from fastapi_kit.type import BaseModel
+from fastapikit.type import BaseModel
 
 # Generic type variable for response data
 T = TypeVar("T")
@@ -30,7 +30,7 @@ class SuccessResponse(BaseModel, Generic[T]):
     Example:
         ```python
         from fastapi import APIRouter
-        from fastapi_kit.response import ResponseFormatter
+        from fastapikit.response import ResponseFormatter
 
         router = APIRouter()
 
@@ -88,7 +88,7 @@ class ErrorResponse(BaseModel):
     Example:
         ```python
         from fastapi import APIRouter, HTTPException
-        from fastapi_kit.response import ResponseFormatter
+        from fastapikit.response import ResponseFormatter
 
         @router.post("/users")
         async def create_user(name: str, email: str):
@@ -162,7 +162,7 @@ class ResponseFormatter:
     Example:
         ```python
         from fastapi import APIRouter
-        from fastapi_kit.response import ResponseFormatter
+        from fastapikit.response import ResponseFormatter
 
         router = APIRouter()
 

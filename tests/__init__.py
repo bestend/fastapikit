@@ -1,1 +1,1 @@
-"""Test suite for fastapi-kit."""
+"""Test suite for fastapikit."""

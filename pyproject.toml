@@ -3,7 +3,7 @@ requires = ["setuptools>=65.0", "setuptools-scm[toml]>=6.2"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "fastapi-kit"
+name = "fastapikit"
 version = "0.0.dev"  # Auto-updated by GitHub Actions when tag is pushed
 description = "🚀 Easy FastAPI Setup Kit - Production-ready FastAPI boilerplate with logging, error handling, and more"
 readme = "README.md"
@@ -53,17 +53,17 @@ dev = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/bestend/fastapi-kit"
-Documentation = "https://github.com/bestend/fastapi-kit#readme"
-Repository = "https://github.com/bestend/fastapi-kit.git"
-Issues = "https://github.com/bestend/fastapi-kit/issues"
+Homepage = "https://github.com/bestend/fastapikit"
+Documentation = "https://github.com/bestend/fastapikit#readme"
+Repository = "https://github.com/bestend/fastapikit.git"
+Issues = "https://github.com/bestend/fastapikit/issues"
 
 [tool.setuptools]
-packages = ["fastapi_kit"]
+packages = ["fastapikit"]
 package-dir = {"" = "src"}
 
 [tool.setuptools.package-data]
-fastapi_kit = ["py.typed"]
+fastapikit = ["py.typed"]
 
 [tool.ruff]
 line-length = 100
@@ -89,5 +89,5 @@ check_untyped_defs = false
 [tool.pytest.ini_options]
 testpaths = ["tests"]
 python_files = "test_*.py"
-addopts = "-v --cov=fastapi_kit --cov-report=term-missing"
+addopts = "-v --cov=fastapikit --cov-report=term-missing"
 asyncio_mode = "auto"

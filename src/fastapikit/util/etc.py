@@ -58,7 +58,7 @@ def timeit(prefix: str = ""):
         # Logs: "Database query time elapsed 0.123 sec"
         ```
     """
-    from fastapi_kit.log import get_logger
+    from fastapikit.log import get_logger
 
     logger = get_logger()
 

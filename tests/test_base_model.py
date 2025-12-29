@@ -3,7 +3,7 @@
 import pytest
 from pydantic import ValidationError
 
-from fastapi_kit import BaseModel
+from fastapikit import BaseModel
 
 
 def test_base_model_basic():

@@ -18,7 +18,7 @@ from fastapi.security import (
 from jose import JWTError, jwt
 from pydantic import BaseModel, Field
 
-from fastapi_kit.log import get_logger
+from fastapikit.log import get_logger
 
 logger = get_logger()
 
@@ -145,7 +145,7 @@ class OIDCAuth:
     Example:
         ```python
         from fastapi import APIRouter, Depends
-        from fastapi_kit.auth import OIDCAuth, OIDCConfig, TokenPayload
+        from fastapikit.auth import OIDCAuth, OIDCConfig, TokenPayload
 
         # Configure OIDC
         config = OIDCConfig(

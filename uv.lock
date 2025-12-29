@@ -521,7 +521,7 @@ wheels = [
 ]
 
 [[package]]
-name = "fastapi-kit"
+name = "fastapikit"
 version = "0.0.dev0"
 source = { editable = "." }
 dependencies = [
