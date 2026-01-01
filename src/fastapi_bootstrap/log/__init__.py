@@ -5,7 +5,7 @@
 주의: import 시점에 loguru Handler 동작을 패치하는 등 부수효과가 있습니다.
 """
 
-from .loguru_helper import (
+from .setup import (
     InterceptHandler,
     get_logger,
     intercept_standard_logging,
